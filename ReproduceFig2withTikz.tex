@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows.meta, positioning}
+\geometry{hmargin=3cm,vmargin=1.5cm}
+
+\title{Path diagrams proposal}
+\author{Gabin Drouard }
+\date{December 2021}
+
+\begin{document}
+\thispagestyle{empty}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\begin{center}\vspace{5cm}
+%\resizebox{16cm}{12cm}{%
+    \begin{tikzpicture} [node distance = 3.8cm and 4.5cm, on grid, auto]
+ 
+\node (q0) [state] {$\textbf{Intercept}_{BMI}$};
+\node (q1) [state, right = of q0] {$\hspace{0.35cm}\textbf{Slope}_{BMI}\hspace{0.35cm}$};
+\node (a1) [state, above = of q0, rectangle] {$BMI_{1981}$};
+\node (a2) [state, left = of a1, rectangle] {$BMI_{1975}$};
+\node (a3) [state, right = of a1, rectangle] {$BMI_{1990}$};
+\node (a4) [state, right = of a3, rectangle] {$BMI_{2011}$};
+\node (q0a) [state,below = of q0] {$\textbf{Intercept}_{ALC}$};
+\node (q1a) [state, below = of q1]
+ {$\hspace{0.35cm}\textbf{Slope}_{ALC}\hspace{0.35cm}$};
+\node (a1a) [state, below = of q0a, rectangle] {$ALC_{1981}$};
+\node (a2a) [state, left = of a1a, rectangle] {$ALC_{1975}$};
+\node (a3a) [state, right = of a1a, rectangle] {$ALC_{1990}$};
+\node (a4a) [state, right = of a3a, rectangle] {$ALC_{2011}$};
+\node[draw,dotted,fit=(q0) (q1) (q0a) (q1a), dashed ,line width=0.6mm] {};
+\path [-stealth, thick]
+    (q0) edge  node [above right=0.1cm] {} (a1)
+         edge  node [left=0.3cm] {} (a2)
+         edge  node [left above=0.2cm] {} (a3)
+         edge  node [right=0.4cm] {} (a4)
+         (q0) edge [stealth-stealth,bend right,loosely dotted]  node [left=0.1cm] {} (q1)
+         edge [stealth-stealth,bend left, loosely dotted]  node [left=0.1cm] {} (q0a)
+         edge [stealth-stealth, loosely dotted]  node [left=0.1cm] {} (q1a)
+         
+    (q1) 
+         edge  node [left=0.1cm] {6} (a1)
+         edge  node [left=0.2cm] {0} (a2)
+         edge  node [aboveright=0.3cm] {15} (a3)
+         edge  node [right=0.2cm] {36} (a4)
+         edge [stealth-stealth,loosely dotted]  node [left=0.1cm] {} (q0a)
+         edge [stealth-stealth,bend right,loosely dotted]  node [left=0.1cm] {} (q1a)
+    (q0a) edge [stealth-stealth,bend left, loosely dotted] node [left=0.1cm]{} (q1a)
+         edge  node [above right=0.1cm] {} (a1a)
+         edge  node [left=0.3cm] {} (a2a)
+         edge  node [left above=0.2cm] {} (a3a)
+         edge  node [right=0.4cm] {} (a4a)
+    (q1a) 
+         edge  node [left=0.1cm] {6} (a1a)
+         edge  node [left=0.2cm] {0} (a2a)
+         edge  node [aboveright=0.3cm] {15} (a3a)
+         edge  node [right=0.2cm] {36} (a4a)
+         
+
+
+\end{tikzpicture}\vspace{1cm}
+%}
+
+\end{center}
+\end{document}
