@@ -130,6 +130,7 @@ model <- '
     Alc11 ~ Age11 + Smo11_1 + Smo11_2 + Smo11_3 + Mar11m 
 '
 
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 # fitting data
 fit <- growth(model, data = df)
 
@@ -180,7 +181,7 @@ model <- '
     Alc11 ~ Age11 +  Mar11m 
 '
 
-
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 fit <- growth(model, data = df)
 lavInspect(fit)
 summary(fit, fit.measures=T)
@@ -226,7 +227,7 @@ model <- '
     Alc11 ~ Age11 + Smo11_1 + Smo11_2 + Smo11_3 + Mar11m 
 '
 
-
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 fit <- growth(model, data = dfm)
 lavInspect(fit)
 summary(fit,fit.measures=T)
@@ -249,6 +250,7 @@ pred$person_nb <- rownames(pred)
 
 ### MODEL FEMALE
 
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 model <- '
   # intercept and slope with fixed coefficients
     i_bmi =~ 1*BMI75 + 1*BMI81 + 1*BMI90 + 1*BMI11
@@ -328,7 +330,7 @@ model <- '
 # above are taken residuals of BMI/Alc
 # it could be possible to correct for age differences.
 
-
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 fit <- growth(model, data = dfm)
 lavInspect(fit)
 summary(fit, fit.measures=T)
@@ -393,6 +395,7 @@ model <- '
 
 # in the ms, log-values were considered (as in the sensitivity analysis)
 
+# use cluster argument to correct for family_nb if twin data, and ML if missing values (missing='ML')
 fit <- growth(model, data = dfm) # for men
 lavInspect(fit)
 summary(fit, fit.measures=T)
