@@ -7,11 +7,10 @@ Gabin Drouard, Karri Silventoinen, Antti Latvala, Jaakko Kaprio (2022). Genetic 
 
 The R script presents the Growth Curve Modeling achievable under the lavaan package, corresponding to both the sensitivity analysis and the model used in the core of the manuscript. The two TeX files allow to reproduce the path diagrams corresponding to Figure 2 and Figure 3 of the manuscript.
 
-As for twin modeling, open access resources can be used and adapted to reproduce the genetic models, like the four resources mentioned below from which our code has been adapted:
+As for twin modeling, open access resources can be used and adapted to reproduce the genetic models, like the three resources mentioned below from which our code has been adapted:
 1- https://hermine-maes.squarespace.com/
 2- https://openmx.ssri.psu.edu/
 3- https://github.com/MoritzHerle/The-role-of-the-environment-in-overweight-and-eating-behavior-variability
-4- https://hermine-maes.squarespace.com/
 
 As for Growth Curve Modeling, further examples can be found at: https://lavaan.ugent.be/tutorial/
 
